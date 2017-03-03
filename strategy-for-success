@@ -3,7 +3,7 @@ import random
 
 # List of tiles
 
-tiles = [" ", "#", "^", "|")
+tiles = [" ", "#", "^", "|"]
 
 # Creates map
 
@@ -29,4 +29,4 @@ def generate():
         
 generate()
 
-print(map)
+print(map[-6][0] + map [-5][0] + map[-4][0] + map[-3][0] + map[-2][0] + map[-1][0] + map[0][0] + map[1][0] + map[2][0] + map[3][0] + map[4][0])
