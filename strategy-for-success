@@ -1,0 +1,32 @@
+#!/usr/bin/env python3
+import random
+
+# List of tiles
+
+tiles = [" ", "#", "^", "|")
+
+# Creates map
+
+w = 5
+h = 5
+
+map = [[0 for x in range(w)]for y in range (h)]
+
+
+# Generates map
+
+def generate():
+    
+    x = 4
+    y = 4
+
+    while x > -6:
+        while y > -6:
+            map[x][y] = random.choice(tiles)
+            y -= 1
+        x -= 1
+        y = 4
+        
+generate()
+
+print(map)
