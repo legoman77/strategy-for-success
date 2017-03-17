@@ -4,7 +4,7 @@ import skilstak.colors as c
 
 # List of tiles
 
-tiles = [" ", "#", "^", "|"]
+tiles = ["O", "#", "^", "|"]
 
 # Creates map
 
@@ -32,14 +32,18 @@ generate()
 
 # Places player unit
 
-px = random.randrange(-5,4)
-py = random.randrange(-5,4)
-map[px][py] = c.blue + map[px][py] + c.reset 
+px1 = random.randrange(-5,-1)
+py1 = random.randrange(-5,-1)
+map[px1][py1] = c.blue + map[px1][py1] + c.reset 
 
 # Prints map
 
 c = -5
 
-while c < 5: 
-    print(map[-5][c] + map[-4][c] + map[-3][c] + map[-2][c] + map[-1][c] + map[0][c] + map[1][c] + map[2][c] + map[3][c] + map[4][c])
-    c += 1
+while c < 0: 
+    print(map[-5][c] + map[-4][c] + map[-3][c] + map[-2][c] + map[-1][c])
+    c += 
+    
+# Player Phase
+
+print(
