@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import random
-import skilstak.colors as c
+import skilstak.colors as colors
+import getch
 
 # List of tiles
 
@@ -34,16 +35,32 @@ generate()
 
 px1 = random.randrange(-5,-1)
 py1 = random.randrange(-5,-1)
-map[px1][py1] = c.blue + map[px1][py1] + c.reset 
+
+def move_p1():
+    map[px1][py1] = colors.blue + map[px1][py1] + colors.reset
+def reset_p1():
+    map[px1][py1] = colors.base3 +  
+move_p1()
 
 # Prints map
 
 c = -5
 
-while c < 0: 
-    print(map[-5][c] + map[-4][c] + map[-3][c] + map[-2][c] + map[-1][c])
-    c += 
-    
+
+def print_map(c):
+    while c < 0: 
+        print(map[-5][c] + map[-4][c] + map[-3][c] + map[-2][c] + map[-1][c])
+        c += 1 
+    c = -5
+
+print_map(c)
+
 # Player Phase
 
-print(
+print("Where would you like to move Unit 1? (Use WASD to move).")
+direction = getch.getch()
+if direction == "w":
+    py1 -= 1
+    move_p1()
+    print(colors.clear)
+    print_map(c) 
