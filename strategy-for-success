@@ -38,9 +38,9 @@ py1 = random.randrange(-5,-1)
 
 def move_p1():
     map[px1][py1] = colors.blue + map[px1][py1] + colors.reset
-def reset_p1():
-    map[px1][py1] = colors.base3 +  
+last_p1 = map[px1][py1]
 move_p1()
+
 
 # Prints map
 
@@ -60,7 +60,9 @@ print_map(c)
 print("Where would you like to move Unit 1? (Use WASD to move).")
 direction = getch.getch()
 if direction == "w":
+    map[px1][py1] = last_p1 
     py1 -= 1
+    last_p1 = map[px1][py1]
     move_p1()
     print(colors.clear)
     print_map(c) 
