@@ -59,10 +59,37 @@ print_map(c)
 
 print("Where would you like to move Unit 1? (Use WASD to move).")
 direction = getch.getch()
-if direction == "w":
-    map[px1][py1] = last_p1 
-    py1 -= 1
-    last_p1 = map[px1][py1]
-    move_p1()
-    print(colors.clear)
-    print_map(c) 
+while True:
+    if direction == "w":
+        map[px1][py1] = last_p1 
+        py1 -= 1
+        if py1 < -5:
+            print("You can't move there!")
+            py1 += 1
+        else: 
+            last_p1 = map[px1][py1]
+            move_p1()
+            print(colors.clear)
+            print_map(c)
+            break
+    elif direction == "s":
+        map[px1][py1] = last_p1 
+        py1 += 1
+        last_p1 = map[px1][py1]
+        move_p1()
+        print(colors.clear)
+        print_map(c)
+    elif direction == "a":
+        map[px1][py1] = last_p1 
+        px1 -= 1
+        last_p1 = map[px1][py1]
+        move_p1()
+        print(colors.clear)
+        print_map(c)
+    elif direction == "d":
+        map[px1][py1] = last_p1 
+        px1 += 1
+        last_p1 = map[px1][py1]
+        move_p1()
+        print(colors.clear)
+        print_map(c) 
