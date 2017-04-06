@@ -75,10 +75,15 @@ while True:
     elif direction == "s":
         map[px1][py1] = last_p1 
         py1 += 1
-        last_p1 = map[px1][py1]
-        move_p1()
-        print(colors.clear)
-        print_map(c)
+        if py1 > -1:
+            print("You can't move there!")
+            py1 -= 1
+        else: 
+            last_p1 = map[px1][py1]
+            move_p1()
+            print(colors.clear)
+            print_map(c)
+            break
     elif direction == "a":
         map[px1][py1] = last_p1 
         px1 -= 1
