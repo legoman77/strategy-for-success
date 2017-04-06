@@ -57,9 +57,9 @@ print_map(c)
 
 # Player Phase
 
-print("Where would you like to move Unit 1? (Use WASD to move).")
-direction = getch.getch()
 while True:
+    print("Where would you like to move Unit 1? (Use WASD to move).")
+    direction = getch.getch()
     if direction == "w":
         map[px1][py1] = last_p1 
         py1 -= 1
@@ -87,14 +87,24 @@ while True:
     elif direction == "a":
         map[px1][py1] = last_p1 
         px1 -= 1
-        last_p1 = map[px1][py1]
-        move_p1()
-        print(colors.clear)
-        print_map(c)
+        if px1 < -5:
+            print("You can't move there!")
+            px1 += 1
+        else: 
+            last_p1 = map[px1][py1]
+            move_p1()
+            print(colors.clear)
+            print_map(c)
+            break
     elif direction == "d":
         map[px1][py1] = last_p1 
         px1 += 1
-        last_p1 = map[px1][py1]
-        move_p1()
-        print(colors.clear)
-        print_map(c) 
+        if px1 > -1:
+            print("You can't move there!")
+            pxl -= 1
+        else: 
+            last_p1 = map[px1][py1]
+            move_p1()
+            print(colors.clear)
+            print_map(c)
+            break
