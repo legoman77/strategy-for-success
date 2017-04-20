@@ -72,6 +72,9 @@ print_map(c)
 while True:
     print("Where would you like to move Unit 1? (Use WASD to move).")
     direction = getch.getch()
+    
+    # North 
+    
     if direction == "w":
         map[px1][py1] = last_p1 
         py1 -= 1
@@ -84,6 +87,9 @@ while True:
             print(colors.clear)
             print_map(c)
             break
+    
+    # South 
+    
     elif direction == "s":
         map[px1][py1] = last_p1 
         py1 += 1
@@ -96,6 +102,9 @@ while True:
             print(colors.clear)
             print_map(c)
             break
+    
+    # West 
+    
     elif direction == "a":
         map[px1][py1] = last_p1 
         px1 -= 1
@@ -108,6 +117,9 @@ while True:
             print(colors.clear)
             print_map(c)
             break
+    
+    # East 
+    
     elif direction == "d":
         map[px1][py1] = last_p1 
         px1 += 1
@@ -125,4 +137,61 @@ while True:
 
 # Enemy Phase
 
-e1_action = random.choice(0,3)
+while True:
+    e1_action = random.randrange(0,3) 
+    
+    # North 
+    
+    if e1_action == 0:
+        map[ex1][ey1] = last_e1 
+        ey1 -= 1
+        if ey1 < -5:
+            ey1 += 1
+        else: 
+            last_e1 = map[ex1][ey1]
+            move_e1()
+            print(colors.clear)
+            print_map(c)
+            break
+    
+    # South 
+    
+    elif e1_action == 1:
+        map[ex1][ey1] = last_e1 
+        ey1 += 1
+        if ey1 > -1: 
+            ey1 -= 1
+        else: 
+            last_e1 = map[ex1][ey1]
+            move_e1()
+            print(colors.clear)
+            print_map(c)
+            break
+    
+    # West 
+    
+    elif e1_action == 2:
+        map[ex1][ey1] = last_e1 
+        ex1 -= 1
+        if ex1 < -5: 
+            ex1 += 1
+        else: 
+            last_e1 = map[ex1][ey1]
+            move_e1()
+            print(colors.clear)
+            print_map(c)
+            break
+    
+    # East 
+    
+    elif e1_action == 3:
+        map[ex1][ey1] = last_e1 
+        ex1 += 1
+        if ex1 > -1:           
+            exl -= 1
+        else: 
+            last_e1 = map[ex1][ey1]
+            move_e1()
+            print(colors.clear)
+            print_map(c)
+            break
