@@ -141,7 +141,7 @@ while True:
     # Enemy Phase
 
     while True:
-        e1_action = random.randrange(0,3) 
+        e1_action = random.randrange(0,4) 
     
         # North 
     
@@ -191,7 +191,7 @@ while True:
             map[ex1][ey1] = last_e1 
             ex1 += 1
             if ex1 > -1:           
-                exl -= 1
+                ex1 -= 1
             else: 
                 last_e1 = map[ex1][ey1]
                 move_e1()
